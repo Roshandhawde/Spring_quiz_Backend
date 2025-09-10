@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface QuizService {
 
-    ResponseEntity<String> createQuiz(String category, int qNum, String title);
+    ResponseEntity<String> createQuiz(String category, Long qNum, String title);
 
     ResponseEntity<List<QuestionWrapper>> getQuizById(Long id);
 
