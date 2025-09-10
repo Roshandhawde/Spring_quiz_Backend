@@ -1,5 +1,7 @@
 package com.example.Java_Quiz_App.service;
 
+import com.example.Java_Quiz_App.dto.AnswerResponse;
+import com.example.Java_Quiz_App.dto.QuestionWrapper;
 import com.example.Java_Quiz_App.dto.RequestQuestionDTO;
 import com.example.Java_Quiz_App.entity.Question;
 import org.springframework.http.ResponseEntity;
@@ -20,4 +22,9 @@ public interface QuestionService {
 
      void updateQuestion(Long id, Question question);
 
+    ResponseEntity<List<Long>> gerQuestionFromQuiz(String categoryName, Long numQuestion);
+
+    ResponseEntity<List<QuestionWrapper>> getQuestionFromId(List<Long> questionIds);
+
+    ResponseEntity<Integer> getScore(List<AnswerResponse> answerResponse);
 }

@@ -12,7 +12,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 List<Question> findByCategory(String category);
 
 
-@Query(value = "SELECT * From quiz.questions q where q.category=:category ORDER BY RANDOM() LIMIT :qNum", nativeQuery = true)
-    List<Question> findRamdomQuestionByCategory(String category, int qNum);
+@Query(value = "SELECT q.id From quiz.questions q where q.category=:categoryName ORDER BY RANDOM() LIMIT :numQuestion", nativeQuery = true)
+    List<Long> findRamdomQuestionByCategory(String categoryName, Long numQuestion);
 
 }

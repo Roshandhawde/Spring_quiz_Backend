@@ -1,5 +1,7 @@
 package com.example.Java_Quiz_App.controller;
 
+import com.example.Java_Quiz_App.dto.AnswerResponse;
+import com.example.Java_Quiz_App.dto.QuestionWrapper;
 import com.example.Java_Quiz_App.dto.RequestQuestionDTO;
 import com.example.Java_Quiz_App.entity.Question;
 import com.example.Java_Quiz_App.service.QuestionService;
@@ -54,6 +56,28 @@ public String deleteQuestion(@PathVariable Long id){
         questionService.updateQuestion(id,question );
         return "update Successfully";
     }
+
+    // Generate
+    @GetMapping("generate")
+    public ResponseEntity<List<Long                                                                                                                                                                                                               >> getQuestionFromQuiz
+    (@RequestParam String categoryName , @RequestParam Long numQuestion ){
+return  questionService.gerQuestionFromQuiz(categoryName,numQuestion);
+    }
+
+    @PostMapping("getQuestions")
+    public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(@RequestBody List<Long> questionIds){
+        return questionService.getQuestionFromId(questionIds);
+    }
+
+    @PostMapping("getScore")
+    public ResponseEntity<Integer> GetScore(@RequestBody List<AnswerResponse> answerResponse){
+
+return questionService.getScore(answerResponse);
+    }
+
+
+    // getQuestion bsed in question id
+    // get score
 
 
 
